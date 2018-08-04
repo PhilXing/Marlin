@@ -436,10 +436,15 @@
 
   // If you are using a pre-configured hotend then you can use one of the value sets by uncommenting it
 
+  // D-force (fan on + wind shied,  z=height = 0, "M303 S200 C8")
+  #define DEFAULT_Kp 22.34
+  #define DEFAULT_Ki 1.92
+  #define DEFAULT_Kd 64.98
+  
   // Ultimaker
-  #define DEFAULT_Kp 22.2
-  #define DEFAULT_Ki 1.08
-  #define DEFAULT_Kd 114
+  //#define DEFAULT_Kp 22.2
+  //#define DEFAULT_Ki 1.08
+  //#define DEFAULT_Kd 114
 
   // MakerGear
   //#define DEFAULT_Kp 7.0
@@ -486,11 +491,16 @@
 
   //#define PID_BED_DEBUG // Sends debug data to the serial port.
 
+  // D-force V2
+  #define DEFAULT_bedKp 137.21
+  #define DEFAULT_bedKi 11.47
+  #define DEFAULT_bedKd 410.25
+
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 10.00
-  #define DEFAULT_bedKi .023
-  #define DEFAULT_bedKd 305.4
+  //#define DEFAULT_bedKp 10.00
+  //#define DEFAULT_bedKi .023
+  //#define DEFAULT_bedKd 305.4
 
   //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   //from pidautotune

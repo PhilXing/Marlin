@@ -66,6 +66,20 @@
 
 #if ENABLED(DELTA)
 
+  // NOTE NB all values for DELTA_* values MUST be floating point, so always have a decimal point in them
+
+  // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
+  #define DELTA_PRINTABLE_RADIUS 132.5 // mm
+
+  #define MIN_PROBE_EDGE 10
+
+  // Center-to-center distance of the holes in the diagonal push rods.
+  #define DELTA_DIAGONAL_ROD 352.0
+
+  // height from z=0 to home position
+  #define DELTA_HEIGHT 307.90//310 // get this value from auto calibrate
+
+
   // Make delta curves from many straight lines (linear interpolation).
   // This is a trade-off between visible corners (not enough segments)
   // and processor overload (too many expensive sqrt calls).
@@ -82,42 +96,27 @@
   // uncomment to add G33 Delta Auto-Calibration (Enable EEPROM_SETTINGS to store results)
   #define DELTA_AUTO_CALIBRATION
 
-  // NOTE NB all values for DELTA_* values MUST be floating point, so always have a decimal point in them
-
-  #if ENABLED(DELTA_AUTO_CALIBRATION)
-    // set the default number of probe points : n*n (1 -> 7)
-    #define DELTA_CALIBRATION_DEFAULT_POINTS 5
-
-    // Enable and set these values based on results of 'G33 A'
-    //#define H_FACTOR 1.01
-    //#define R_FACTOR 2.61
-    //#define A_FACTOR 0.87
-
-  #endif
-
-  // Print surface diameter/2 minus unreachable space (avoid collisions with vertical towers).
-  #define DELTA_PRINTABLE_RADIUS 132.5 // mm
-
   #if ENABLED(DELTA_AUTO_CALIBRATION) || ENABLED(DELTA_CALIBRATION_MENU)
     // Set the steprate for papertest probing
     #define PROBE_MANUALLY_STEP 0.025
   #endif
 
-  // Center-to-center distance of the holes in the diagonal push rods.
-#define DELTA_DIAGONAL_ROD 352
-
-  // height from z=0 to home position
-  #define DELTA_HEIGHT 309.72//310 // get this value from auto calibrate
-
-  #define DELTA_ENDSTOP_ADJ { -1.60, 0, -1.34 } // get these from auto calibrate
+  #if ENABLED(DELTA_AUTO_CALIBRATION)
+    // 
+    #define DELTA_CALIBRATION_RADIUS (DELTA_PRINTABLE_RADIUS - (MIN_PROBE_EDGE))
+    // set the default number of probe points : n*n (1 -> 7)
+    #define DELTA_CALIBRATION_DEFAULT_POINTS 5
+  #endif
 
   // Horizontal distance bridged by diagonal push rods when effector is centered.
   #define DELTA_RADIUS 176.75 //175 //mm  Get this value from auto calibrate
 
+  #define DELTA_ENDSTOP_ADJ { -0.04, -0.040, 0 } // get these from auto calibrate
+
   // Trim adjustments for individual towers
   // tower angle corrections for X and Y tower / rotate XYZ so Z tower angle = 0
   // measured in degrees anticlockwise looking from above the printer
-  #define DELTA_TOWER_ANGLE_TRIM { -0.08, 0.09, -0.01 } // get these values from auto calibrate
+  #define DELTA_TOWER_ANGLE_TRIM { -0.21, 0.26, -0.060 } // get these values from auto calibrate
 
   // delta radius and diaginal rod adjustments measured in mm
   //#define DELTA_RADIUS_TRIM_TOWER { 0.0, 0.0, 0.0 }

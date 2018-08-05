@@ -2159,8 +2159,8 @@ void clean_up_after_endstop_or_probe_move() {
 
         #elif HAS_Z_SERVO_PROBE && DISABLED(BLTOUCH)
 //xxx
-    SERIAL_ECHO_START();
-    SERIAL_ECHOLNPAIR("Servo Deploy:", z_servo_angle[deploy ? 0 : 1]);
+//    SERIAL_ECHO_START();
+//    SERIAL_ECHOLNPAIR("Servo Deploy:", z_servo_angle[deploy ? 0 : 1]);
 //xxx    
           MOVE_SERVO(Z_PROBE_SERVO_NR, z_servo_angle[deploy ? 0 : 1]);
 

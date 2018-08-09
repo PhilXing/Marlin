@@ -74,7 +74,7 @@
   #define MIN_PROBE_EDGE 10
 
   // Center-to-center distance of the holes in the diagonal push rods.
-  #define DELTA_DIAGONAL_ROD 353.35//353.30//353.25//353.39//353.11//354.06//349.95//352.0 
+  #define DELTA_DIAGONAL_ROD 353.38//352.0 
 
   // height from z=0 to home position
   #define DELTA_HEIGHT 307.90//310 // get this value from auto calibrate

@@ -1287,8 +1287,8 @@
     out_mesh.distance = -99999.9f;
 
     // Get our reference position. Either the nozzle or probe location.
-    const float px = rx - (probe_as_reference == USE_PROBE_AS_REFERENCE ? X_PROBE_OFFSET_FROM_EXTRUDER : 0),
-                py = ry - (probe_as_reference == USE_PROBE_AS_REFERENCE ? Y_PROBE_OFFSET_FROM_EXTRUDER : 0);
+    const float px = rx + (probe_as_reference == USE_PROBE_AS_REFERENCE ? X_PROBE_OFFSET_FROM_EXTRUDER : 0),
+                py = ry + (probe_as_reference == USE_PROBE_AS_REFERENCE ? Y_PROBE_OFFSET_FROM_EXTRUDER : 0);
 
     float best_so_far = 99999.99f;
 
@@ -1559,12 +1559,12 @@
             incremental_LSF(&lsf_results, PROBE_PT_3_X, PROBE_PT_3_Y, measured_z);
           }
         }
-        
+
         STOW_PROBE();
         #ifdef Z_AFTER_PROBING
           move_z_after_probing();
         #endif
-        
+
         if (abort_flag) {
           SERIAL_ECHOPGM("?Error probing point.  Aborting operation.\n");
           return;
@@ -1625,7 +1625,7 @@
       #ifdef Z_AFTER_PROBING
         move_z_after_probing();
       #endif
-      
+
       if (abort_flag || finish_incremental_LSF(&lsf_results)) {
         SERIAL_ECHOPGM("Could not complete LSF!");
         return;

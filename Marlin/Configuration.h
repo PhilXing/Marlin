@@ -631,7 +631,6 @@
 #define E2_DRIVER_TYPE A4988
 #define E3_DRIVER_TYPE A4988
 #define E4_DRIVER_TYPE A4988
-=======
 //#define X_DRIVER_TYPE  A4988
 //#define Y_DRIVER_TYPE  A4988
 //#define Z_DRIVER_TYPE  A4988
@@ -643,7 +642,6 @@
 //#define E2_DRIVER_TYPE A4988
 //#define E3_DRIVER_TYPE A4988
 //#define E4_DRIVER_TYPE A4988
->>>>>>> upstream/bugfix-1.1.x
 
 // Enable this feature if all enabled endstop pins are interrupt-capable.
 // This will remove the need to poll the interrupt pins, saving many CPU cycles.
@@ -2017,8 +2015,6 @@
 // If the servo can't reach the requested position, increase it.
 #define SERVO_DELAY { 300 }
 
-// Servo deactivation
-//
 // Only power servos during movement, otherwise leave off to prevent jitter
 //#define DEACTIVATE_SERVOS_AFTER_MOVE
 
